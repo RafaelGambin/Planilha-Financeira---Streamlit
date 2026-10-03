@@ -1,41 +1,41 @@
-# 📊 Dashboard Interativo com Streamlit
+# 📊 Financial Dashboard — Streamlit
 
-Este projeto é uma aplicação web desenvolvida com [Streamlit](https://streamlit.io/) para leitura de planilhas Excel, onde é possível **filtrar dados dinamicamente** e visualizar gráficos interativos baseados nos valores mensais de despesas ou outras métricas.
+Interactive web app built with **Python, Streamlit, Pandas, and Plotly** to explore a monthly
+expense spreadsheet: filter the data, edit it in the browser, visualize trends, and export
+the result back to Excel.
 
----
+## Features
 
-## 🚀 Funcionalidades
+- **Data cleaning on load** — converts currency strings (e.g. `R$ 1.234,56`) into numeric values
+- **Dynamic filters** — multiselect for text columns and range sliders for numeric columns
+- **Editable table** — adjust values directly in the browser (`st.data_editor`)
+- **Monthly trend chart** — line chart per expense, with months correctly ordered (Jan → Dec)
+- **Custom charts** — choose X/Y columns and switch between bar, pie, and line charts
+- **Excel export** — download the edited data as a new `.xlsx` file
 
-- 📂 Carregamento de arquivos `.xlsx`
-- 🔎 Filtros dinâmicos para colunas de texto e números
-- 📉 Geração automática de gráficos interativos com Plotly
-- 📊 Eixo X representando os meses do ano e Y os valores (ex: despesas)
-- ❌ Tratamento de valores nulos (ignora para gerar gráficos)
-- 📌 Ordenação correta dos meses (Janeiro a Dezembro)
+## Tech stack
 
----
+Python · Streamlit · Pandas · Plotly · OpenPyXL
 
-## 🛠️ Pré-requisitos
-
-Certifique-se de ter o Python instalado e crie um ambiente virtual:
+## Getting started
 
 ```bash
+git clone https://github.com/RafaelGambin/Planilha-Financeira---Streamlit.git
+cd Planilha-Financeira---Streamlit
+
 python -m venv .venv
-source .venv/bin/activate # Linux/macOS
-.venv\Scripts\activate     # Windows
-```
+source .venv/bin/activate      # Linux/macOS
+.venv\Scripts\activate         # Windows
 
----
-
-## Instalar Dependências
-
-```bash
 pip install -r requirements.txt
-```
-
----
-
-## Executar o programa
-```bash
 streamlit run main.py
 ```
+
+The app loads the sample file `test.xlsx`. To use your own data, keep the same structure:
+an `DESPESA` (expense) column plus one column per month (`JANEIRO` … `DEZEMBRO`).
+
+## Possible improvements
+
+- File upload so users can analyze their own spreadsheets
+- Unit tests for the data-cleaning step
+- Deploy to Streamlit Community Cloud
