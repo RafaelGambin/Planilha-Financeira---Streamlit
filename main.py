@@ -38,7 +38,7 @@ for coluna in df.columns:
             )
             df_filtrado = df_filtrado[df_filtrado[coluna].isin(opcoes)]
         elif pd.api.types.is_numeric_dtype(df[coluna]):
-            if df[coluna].dropna():
+            if df[coluna].dropna().empty:
                 continue
             min_val, max_val = float(df[coluna].min()), float(df[coluna].max())
             slider = st.sidebar.slider(f"Filtrar {coluna}", min_val, max_val, (min_val, max_val))
