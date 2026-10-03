@@ -6,7 +6,7 @@ import plotly.express as px
 @st.cache_data
 def carregar_dados():
     df = pd.read_excel(
-        r"C:\Users\rafae\PycharmProjects\planilha_streamlit\test.xlsx",
+        r"test.xlsx",
         engine='openpyxl'
     )
     df.columns = df.columns.str.strip()
